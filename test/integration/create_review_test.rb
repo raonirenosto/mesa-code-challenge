@@ -6,6 +6,8 @@ class CreateReviewTest < ActionDispatch::IntegrationTest
 
     assert_response :created
 
+    body = JSON.parse(response.body)
+
     assert_equal 5, body["rating"]
     assert_equal "Awesome place", body["comment"]
   end
