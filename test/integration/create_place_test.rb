@@ -9,14 +9,18 @@ class CreatePlaceTest < ActionDispatch::IntegrationTest
 
     body = JSON.parse(response.body)
 
-    assert_equal "Starbucks", body[:name]
-    assert_equal "-22.836946", body[:latitude] 
-    assert_equal "-47.024231", body[:longitude]
-    assert_not_nil body[:id]
+    assert_equal "Burguer King Pato Branco", body["name"]
+    assert_equal "Pato Branco", body["city"] 
+    assert_equal "Rua Caramuru", body["street"]
+    assert_equal "Brasil", body["country"]
+    assert_not_nil body["latitude"]
+    assert_not_nil body["longitude"]
+    assert_not_nil body["id"]
 
     # should have only "id", "name",
-    #  "latidude" and "longitude"
-    assert body.size == 4  
+    # city, country, street
+    # "latidude" and "longitude"
+    assert body.size == 7  
   end
 
   test "create place without token" do
@@ -27,9 +31,10 @@ class CreatePlaceTest < ActionDispatch::IntegrationTest
 
   def params
     {
-      "name": "Starbucks",
-      "latitude": "-22.836946",
-      "longitude": "-47.024231"
+      "name": "Burguer King Pato Branco",
+      "city": "Pato Branco",
+      "country": "Brasil",
+      "street": "Rua Caramuru"
     }
   end
 end
