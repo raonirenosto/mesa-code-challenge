@@ -2,9 +2,7 @@ require "test_helper"
 
 class LoginUserTest < ActionDispatch::IntegrationTest
   test "should login user" do
-    jhon = users(:jhon)
-
-    post api_v1_logins_path, params: jhon, as: :json
+    post api_v1_logins_path, params: authorized_user, as: :json
 
     assert_response :ok
 
@@ -16,6 +14,13 @@ class LoginUserTest < ActionDispatch::IntegrationTest
     post api_v1_logins_path, params: unauthorized_user, as: :json
 
     assert_response :unauthorized
+  end
+
+  def authorized_user
+    {
+      "email": "jhon@jhon.com",
+      "password": "asd123"
+    }
   end
 
   def unauthorized_user
