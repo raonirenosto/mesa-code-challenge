@@ -1,5 +1,18 @@
 class Api::V1::PlacesController < ApplicationController
-  before_action :authenticate, only: [:create]
+  before_action :authenticate, only: [:create,:index]
+
+  def index
+    places = []
+    if params[:type] == "list"
+      places = Place.all.order(:name)
+    else
+      latitude = params[:latitude]
+      longitude = params[:longitude]
+      places = Place.all.sort_by { |place| place.distance_to([latitude, longitude])}
+    end
+
+    render json: places.as_json(only: fields_only), status: :ok
+  end
   
   def create
     place = Place.new

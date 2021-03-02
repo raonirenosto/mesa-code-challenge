@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:create, :show, :update]
       resources :logins, only: [:create]
-      resources :places, only: [:create]
+      resources :places, only: [:create, :index]
     end
   end
 end

@@ -15,11 +15,19 @@ class ListPlacesTest < ActionDispatch::IntegrationTest
   end
 
   test "list places by map type" do
-    get "/api/v1/places?type=map", headers: generate_token
+    my_latitude = -26.233176
+    my_longitude = -52.665019
+
+    get "/api/v1/places?type=map&latitude=#{my_latitude}&longitude=#{my_longitude}",
+        headers: generate_token
 
     assert_response :ok
 
-    # Checking the most distant
+    body = JSON.parse(response.body)
+
+    assert_equal "Patão Supermercados", body[0]["name"]
+    assert_equal "Unimed Pato Branco", body[1]["name"]
+    assert_equal "Hospital São Lucas", body[2]["name"]
     assert_equal "Empire State Building", body[3]["name"]
   end
 
