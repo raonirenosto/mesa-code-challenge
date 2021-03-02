@@ -1,6 +1,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative "../config/environment"
 require "rails/test_help"
+include LoginUtils
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
@@ -11,6 +12,6 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def generate_token user_id = User.first.id
-    return { 'Authorization' => JWTUtils.encode(user_id) }
+    return { 'Authorization' => encode(user_id) }
   end
 end
