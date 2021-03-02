@@ -41,3 +41,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use jwt for token authentication
 gem 'jwt'
+
+# Use geocoder
+gem 'geocoder'
