@@ -10,6 +10,12 @@ class CreateReviewTest < ActionDispatch::IntegrationTest
     assert_equal "Awesome place", body["comment"]
   end
 
+  test "create review without token" do
+    post api_v1_reviews_path, params: params
+
+    assert_response :unauthorized
+  end
+
   def params
     {
       "rating": 5,
