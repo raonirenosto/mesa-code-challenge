@@ -1,0 +1,5 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+jhon:
+  email: jhon@jhon.com
+  password_digest: $2a$12$zB5iZKERrapinqQnvj8yQ.L8WasSXMTHaT3HX6AH/v6hubxOpD5Xq #asd123
