@@ -4,7 +4,7 @@ class GetUserTest < ActionDispatch::IntegrationTest
   test "get user" do
     jhon = users(:jhon)
 
-    get api_v1_users_path(jhon.id), headers: generate_token(jhon.id)
+    get api_v1_user_path(jhon.id), headers: generate_token(jhon.id)
 
     assert_response :ok
 
@@ -20,7 +20,7 @@ class GetUserTest < ActionDispatch::IntegrationTest
   test "get user without token" do
     jhon = users(:jhon)
 
-    get api_v1_users_path(jhon.id)
+    get api_v1_user_path(jhon.id)
 
     assert_response :unauthorized
   end
