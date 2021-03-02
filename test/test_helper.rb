@@ -10,4 +10,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def generate_token user_id = User.first.id
+    return { 'Authorization' => JWTUtils.encode(user_id) }
+  end
 end
