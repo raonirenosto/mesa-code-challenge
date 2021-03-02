@@ -1,17 +1,35 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  country: MyString
-  city: MyString
-  street: MyString
-  latitude: 1.5
-  longitude: 1.5
+unimed:
+  name: Unimed Pato Branco
+  country: Brasil
+  city: Pato Branco
+  street: Avenida Tupi
+  latitude: -26.231431
+  longitude: -52.672425 
 
-two:
-  name: MyString
-  country: MyString
-  city: MyString
-  street: MyString
-  latitude: 1.5
-  longitude: 1.5
+hospital_sao_lucas:
+  name: Hospital São Lucas
+  country: Brasil
+  city: Pato Branco
+  street: Rua Silvio Vidal
+  latitude: -26.227196
+  longitude: -52.670709
+
+patao_supermercados:
+  name: Patão Supermercados
+  country: Brasil
+  city: Pato Branco
+  street: Avenida Tupi
+  latitude: -26.234552
+  longitude: -52.671463
+
+empire_state:
+  name: Empire State Building
+  country: USA
+  city: New York
+  street: NY 10001
+  latitude: 40.748773
+  longitude: -73.985774
+
+
