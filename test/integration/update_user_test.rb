@@ -15,7 +15,7 @@ class UpdateUserTest < ActionDispatch::IntegrationTest
 
     # check if passsword was changed
     user = authenticate_user "jhon@newemail.com", "newpassword"
-    asser_not_nil user
+    assert_not_nil user
 
     # should have only "id" and email
     assert_not_nil body["id"]
