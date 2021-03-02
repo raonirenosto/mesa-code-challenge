@@ -3,7 +3,8 @@ class Api::V1::UsersController < ApplicationController
     user = User.new
     user.email = params[:email]
     user.password = params[:password]
+    user.save!
 
-    render json: user, status: :created
+    render json: user.as_json(only: [:id, :email]), status: :created
   end
 end
