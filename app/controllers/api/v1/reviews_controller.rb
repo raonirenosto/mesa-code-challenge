@@ -1,5 +1,11 @@
 class Api::V1::ReviewsController < ApplicationController
-  before_action :authenticate, only: [:create]
+  before_action :authenticate, only: [:create, :index]
+
+  def index
+    place = Place.find(params[:place_id])
+
+    render json: place.reviews.as_json(only: fields_only), status: :ok
+  end
   
   def create
     place = Place.find(params[:place_id])

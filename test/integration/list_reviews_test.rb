@@ -15,7 +15,7 @@ class ListReviewsTest < ActionDispatch::IntegrationTest
   test "list reviews without token" do
     unimed = places(:unimed)
 
-    get api_v1_place_reviews_path(unimed.id), headers: generate_token
+    get api_v1_place_reviews_path(unimed.id)
 
     assert_response :unauthorized
   end
