@@ -9,10 +9,15 @@ class ReviewTest < ActiveSupport::TestCase
     assert Review.create.errors[:comment].any?
   end
 
+  test "place should be required" do
+    assert Review.create.errors[:place].any?
+  end
+
   test "review should be created" do
     assert_not Review.create(
       rating: 5,
-      comment: "Any").errors.any?,
+      comment: "Any",
+      place: places(:empire_state)).errors.any?,
         "review should be created"
   end
 end
